@@ -60,6 +60,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'materi-satu';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -173,6 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">materi 1(pertama)</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="materi-dua.html">materi 2(kedua)</a></li>
 </ul>
 
@@ -343,7 +346,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -359,6 +364,26 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">materi 1(pertama)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-transformasi-linear">Matriks Transformasi Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-transformasi-2d">1. Konsep Dasar Transformasi 2D</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-referensi-matriks-transformasi-standar">Tabel Referensi Matriks Transformasi Standar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-interaktif-geogebra">2. Visualisasi Interaktif GeoGebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komposisi-transformasi-transformasi-berurutan">3. Komposisi Transformasi (Transformasi Berurutan)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-dan-penyelesaian">4. Contoh Soal dan Penyelesaian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-komputasi-python">5. Implementasi Komputasi (Python)</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -371,6 +396,116 @@
   <section class="tex2jax_ignore mathjax_ignore" id="materi-1-pertama">
 <h1>materi 1(pertama)<a class="headerlink" href="#materi-1-pertama" title="Link to this heading">#</a></h1>
 <p>ak u adalah anak ra j fuwahhdbdan bukan untuk</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="matriks-transformasi-linear">
+<h1>Matriks Transformasi Linear<a class="headerlink" href="#matriks-transformasi-linear" title="Link to this heading">#</a></h1>
+<p>Dalam Aljabar Linear, sebuah transformasi <span class="math notranslate nohighlight">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> disebut <strong>transformasi linear</strong> jika pemetaan tersebut dapat direpresentasikan dalam bentuk perkalian matriks. Untuk setiap vektor <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, transformasinya dapat dituliskan sebagai:</p>
+<div class="math notranslate nohighlight">
+\[T(\mathbf{x}) = A\mathbf{x}\]</div>
+<p>Di mana <span class="math notranslate nohighlight">\(A\)</span> adalah <strong>matriks standar</strong> untuk transformasi tersebut.</p>
+<section id="konsep-dasar-transformasi-2d">
+<h2>1. Konsep Dasar Transformasi 2D<a class="headerlink" href="#konsep-dasar-transformasi-2d" title="Link to this heading">#</a></h2>
+<p>Secara geometris, transformasi ini mengubah posisi titik asal <span class="math notranslate nohighlight">\((x, y)\)</span> menjadi koordinat baru <span class="math notranslate nohighlight">\((x', y')\)</span>. Hubungan ini dinyatakan dalam sistem persamaan linear yang dipadatkan ke dalam bentuk matriks:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}\end{split}\]</div>
+<section id="tabel-referensi-matriks-transformasi-standar">
+<h3>Tabel Referensi Matriks Transformasi Standar<a class="headerlink" href="#tabel-referensi-matriks-transformasi-standar" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Jenis Transformasi</p></th>
+<th class="head text-center"><p>Matriks Standar (<span class="math notranslate nohighlight">\(A\)</span>)</p></th>
+<th class="head text-left"><p>Penjelasan Geometris</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Refleksi (Sumbu X)</strong></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}\)</span></p></td>
+<td class="text-left"><p>Mencerminkan objek terhadap garis horizontal <span class="math notranslate nohighlight">\(y=0\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Refleksi (Sumbu Y)</strong></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} -1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\)</span></p></td>
+<td class="text-left"><p>Mencerminkan objek terhadap garis vertikal <span class="math notranslate nohighlight">\(x=0\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Scaling (Skala)</strong></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} s_x &amp; 0 \\ 0 &amp; s_y \end{bmatrix}\)</span></p></td>
+<td class="text-left"><p>Mengubah ukuran objek dengan faktor <span class="math notranslate nohighlight">\(s_x\)</span> dan <span class="math notranslate nohighlight">\(s_y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Shear (Sumbu X)</strong></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; k \\ 0 &amp; 1 \end{bmatrix}\)</span></p></td>
+<td class="text-left"><p>Menggeser bagian atas objek sejauh <span class="math notranslate nohighlight">\(k\)</span> secara horizontal.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Rotasi (<span class="math notranslate nohighlight">\(\theta\)</span>)</strong></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{bmatrix}\)</span></p></td>
+<td class="text-left"><p>Memutar objek sejauh <span class="math notranslate nohighlight">\(\theta\)</span> berlawanan arah jarum jam.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="visualisasi-interaktif-geogebra">
+<h2>2. Visualisasi Interaktif GeoGebra<a class="headerlink" href="#visualisasi-interaktif-geogebra" title="Link to this heading">#</a></h2>
+<p>Gunakan simulasi di bawah ini untuk melihat bagaimana perubahan nilai pada elemen matriks mempengaruhi vektor unit di bidang Cartesian secara <em>real-time</em>.</p>
+<iframe src="https://www.geogebra.org/classic/pf3xmaqw?embed" width="600" height="400" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+</section>
+<hr class="docutils" />
+<section id="komposisi-transformasi-transformasi-berurutan">
+<h2>3. Komposisi Transformasi (Transformasi Berurutan)<a class="headerlink" href="#komposisi-transformasi-transformasi-berurutan" title="Link to this heading">#</a></h2>
+<p>Jika sebuah objek mengalami beberapa transformasi secara berturut-turut, kita dapat menggabungkannya menjadi satu matriks tunggal. Misalnya, jika objek ditransformasi oleh matriks <span class="math notranslate nohighlight">\(A\)</span>, kemudian dilanjutkan dengan matriks <span class="math notranslate nohighlight">\(B\)</span>, maka matriks totalnya adalah:</p>
+<div class="math notranslate nohighlight">
+\[A_{total} = B \cdot A\]</div>
+<p><strong>Penting:</strong> Urutan perkalian matriks dilakukan dari kanan ke kiri (transformasi yang dilakukan pertama berada di posisi paling kanan).</p>
+</section>
+<hr class="docutils" />
+<section id="contoh-soal-dan-penyelesaian">
+<h2>4. Contoh Soal dan Penyelesaian<a class="headerlink" href="#contoh-soal-dan-penyelesaian" title="Link to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Contoh 1: Rotasi Titik</p>
+<p>Tentukan koordinat bayangan titik <span class="math notranslate nohighlight">\(P(4, 2)\)</span> setelah dirotasi sebesar <span class="math notranslate nohighlight">\(90^\circ\)</span> berlawanan arah jarum jam terhadap titik asal <span class="math notranslate nohighlight">\((0,0)\)</span>.</p>
+</div>
+<p><strong>Penyelesaian:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Matriks Rotasi <span class="math notranslate nohighlight">\(90^\circ\)</span> (<span class="math notranslate nohighlight">\(R\)</span>):</strong>
+Karena <span class="math notranslate nohighlight">\(\cos 90^\circ = 0\)</span> dan <span class="math notranslate nohighlight">\(\sin 90^\circ = 1\)</span>, maka:
+$<span class="math notranslate nohighlight">\(R = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}\)</span>$</p></li>
+<li><p><strong>Perkalian Matriks:</strong>
+$<span class="math notranslate nohighlight">\(\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix} \begin{bmatrix} 4 \\ 2 \end{bmatrix} = \begin{bmatrix} (0 \cdot 4) + (-1 \cdot 2) \\ (1 \cdot 4) + (0 \cdot 2) \end{bmatrix} = \begin{bmatrix} -2 \\ 4 \end{bmatrix}\)</span>$</p></li>
+</ol>
+<p><strong>Hasil:</strong> Bayangan titik <span class="math notranslate nohighlight">\(P\)</span> adalah <strong><span class="math notranslate nohighlight">\((-2, 4)\)</span></strong>.</p>
+<hr class="docutils" />
+<div class="warning admonition">
+<p class="admonition-title">Contoh 2: Transformasi Komposit</p>
+<p>Sebuah objek pertama-tama direfleksikan terhadap sumbu Y, kemudian diskalakan dengan faktor <span class="math notranslate nohighlight">\(s_x = 2\)</span> dan <span class="math notranslate nohighlight">\(s_y = 2\)</span>. Cari matriks transformasinya!</p>
+</div>
+<p><strong>Penyelesaian:</strong></p>
+<ol class="arabic simple">
+<li><p>Matriks Refleksi Sumbu Y (<span class="math notranslate nohighlight">\(M\)</span>): <span class="math notranslate nohighlight">\(\begin{bmatrix} -1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\)</span></p></li>
+<li><p>Matriks Skala (<span class="math notranslate nohighlight">\(S\)</span>): <span class="math notranslate nohighlight">\(\begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 2 \end{bmatrix}\)</span></p></li>
+<li><p>Matriks Gabungan (<span class="math notranslate nohighlight">\(A = S \cdot M\)</span>):
+$<span class="math notranslate nohighlight">\(A = \begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 2 \end{bmatrix} \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} = \begin{bmatrix} -2 &amp; 0 \\ 0 &amp; 2 \end{bmatrix}\)</span>$</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="implementasi-komputasi-python">
+<h2>5. Implementasi Komputasi (Python)<a class="headerlink" href="#implementasi-komputasi-python" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Definisi vektor posisi</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Matriks Rotasi 90 derajat</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
+              <span class="p">[</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Menghitung hasil transformasi (dot product)</span>
+<span class="n">v_prime</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">v</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vektor awal: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vektor hasil transformasi: </span><span class="si">{</span><span class="n">v_prime</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,6 +562,35 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">materi 1(pertama)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-transformasi-linear">Matriks Transformasi Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-transformasi-2d">1. Konsep Dasar Transformasi 2D</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-referensi-matriks-transformasi-standar">Tabel Referensi Matriks Transformasi Standar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-interaktif-geogebra">2. Visualisasi Interaktif GeoGebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komposisi-transformasi-transformasi-berurutan">3. Komposisi Transformasi (Transformasi Berurutan)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-dan-penyelesaian">4. Contoh Soal dan Penyelesaian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-komputasi-python">5. Implementasi Komputasi (Python)</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

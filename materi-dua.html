@@ -60,6 +60,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'materi-dua';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -174,6 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="materi-satu.html">materi 1(pertama)</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">materi 2(kedua)</a></li>
+
 </ul>
 
     </div>
@@ -343,7 +346,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -359,6 +364,35 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">materi 2(kedua)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gaussian-dengan-sagemath">Eliminasi Gaussian dengan SageMath</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-spl-tiga-variabel">1. Penyelesaian SPL Tiga Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-inisialisasi-matriks-augmented">Langkah 1: Inisialisasi Matriks Augmented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menentukan-pivot-pertama">Langkah 2: Menentukan Pivot Pertama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-eliminasi-kolom-pertama">Langkah 3: Eliminasi Kolom Pertama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menentukan-pivot-kedua">Langkah 4: Menentukan Pivot Kedua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-eliminasi-kolom-kedua">Langkah 5: Eliminasi Kolom Kedua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-menentukan-pivot-ketiga">Langkah 6: Menentukan Pivot Ketiga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-spl-empat-variabel">2. Penyelesaian SPL Empat Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-representasi-matriks-4x5">Langkah 1: Representasi Matriks 4x5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-eliminasi-kolom-pertama">Langkah 2: Eliminasi Kolom Pertama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-eliminasi-kolom-kedua">Langkah 3: Eliminasi Kolom Kedua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-pivot-baris-ketiga-dan-eliminasi">Langkah 4: Pivot Baris Ketiga dan Eliminasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-finalisasi-bentuk-eselon">Langkah 5: Finalisasi Bentuk Eselon</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -370,8 +404,146 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="materi-2-kedua">
 <h1>materi 2(kedua)<a class="headerlink" href="#materi-2-kedua" title="Link to this heading">#</a></h1>
-<p>adamfdmasnnerrvn ngunu ta
-cd</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eliminasi-gaussian-dengan-sagemath">
+<h1>Eliminasi Gaussian dengan SageMath<a class="headerlink" href="#eliminasi-gaussian-dengan-sagemath" title="Link to this heading">#</a></h1>
+<p>Eliminasi Gaussian adalah prosedur algoritmik dalam aljabar linear untuk mengubah matriks augmented menjadi bentuk <strong>Eselon Baris</strong>. Proses ini menggunakan Operasi Baris Elementer (OBE) untuk menyederhanakan sistem sehingga solusi dapat ditemukan dengan mudah.</p>
+<hr class="docutils" />
+<section id="penyelesaian-spl-tiga-variabel">
+<h2>1. Penyelesaian SPL Tiga Variabel<a class="headerlink" href="#penyelesaian-spl-tiga-variabel" title="Link to this heading">#</a></h2>
+<p>Diberikan Sistem Persamaan Linear (SPL) berikut:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+2x + y - z = 8 \\
+-3x - y + 2z = -11 \\
+-2x + y + 2z = -3
+\end{cases}
+\end{split}\]</div>
+<section id="langkah-1-inisialisasi-matriks-augmented">
+<h3>Langkah 1: Inisialisasi Matriks Augmented<a class="headerlink" href="#langkah-1-inisialisasi-matriks-augmented" title="Link to this heading">#</a></h3>
+<p>Langkah pertama adalah menyusun koefisien dan konstanta ke dalam matriks. Kita menggunakan ring <code class="docutils literal notranslate"><span class="pre">QQ</span></code> agar hasil perhitungan tetap dalam bentuk pecahan (bukan desimal) untuk menjaga akurasi.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-2-menentukan-pivot-pertama">
+<h3>Langkah 2: Menentukan Pivot Pertama<a class="headerlink" href="#langkah-2-menentukan-pivot-pertama" title="Link to this heading">#</a></h3>
+<p>Kita perlu membuat angka 1 (pivot) pada baris pertama kolom pertama.
+Operasi: Baris ke-0 dikalikan dengan <span class="math notranslate nohighlight">\(1/2\)</span> (<span class="math notranslate nohighlight">\(R_0 \leftarrow \frac{1}{2} R_0\)</span>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-3-eliminasi-kolom-pertama">
+<h3>Langkah 3: Eliminasi Kolom Pertama<a class="headerlink" href="#langkah-3-eliminasi-kolom-pertama" title="Link to this heading">#</a></h3>
+<p>Setelah pivot terbentuk, kita nolkan semua angka di bawah pivot tersebut pada kolom ke-0.
+Operasi: <span class="math notranslate nohighlight">\(R_1 \leftarrow 3R_0 + R_1\)</span> dan <span class="math notranslate nohighlight">\(R_2 \leftarrow 2R_0 + R_2\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> 
+<span class="n">M1</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-4-menentukan-pivot-kedua">
+<h3>Langkah 4: Menentukan Pivot Kedua<a class="headerlink" href="#langkah-4-menentukan-pivot-kedua" title="Link to this heading">#</a></h3>
+<p>Kita berpindah ke baris kedua kolom kedua untuk membuat pivot bernilai 1.
+Operasi: Baris ke-1 dikalikan dengan <span class="math notranslate nohighlight">\(2\)</span> (<span class="math notranslate nohighlight">\(R_1 \leftarrow 2 R_1\)</span>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-5-eliminasi-kolom-kedua">
+<h3>Langkah 5: Eliminasi Kolom Kedua<a class="headerlink" href="#langkah-5-eliminasi-kolom-kedua" title="Link to this heading">#</a></h3>
+<p>Nolkan angka di bawah pivot kedua pada kolom ke-1.
+Operasi: <span class="math notranslate nohighlight">\(R_2 \leftarrow -2R_1 + R_2\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-6-menentukan-pivot-ketiga">
+<h3>Langkah 6: Menentukan Pivot Ketiga<a class="headerlink" href="#langkah-6-menentukan-pivot-ketiga" title="Link to this heading">#</a></h3>
+<p>Terakhir, buat pivot bernilai 1 pada baris ketiga kolom ketiga.
+Operasi: Baris ke-2 dikalikan dengan <span class="math notranslate nohighlight">\(-1\)</span> (<span class="math notranslate nohighlight">\(R_2 \leftarrow -1 R_2\)</span>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="penyelesaian-spl-empat-variabel">
+<h2>2. Penyelesaian SPL Empat Variabel<a class="headerlink" href="#penyelesaian-spl-empat-variabel" title="Link to this heading">#</a></h2>
+<p>Diberikan SPL empat variabel:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+w + x + y + z = 10 \\
+2w + 3x + y - z = 7 \\
+3w + 2x + 2y + z = 17 \\
+4w + x - y + 2z = 10
+\end{cases}
+\end{split}\]</div>
+<section id="langkah-1-representasi-matriks-4x5">
+<h3>Langkah 1: Representasi Matriks 4x5<a class="headerlink" href="#langkah-1-representasi-matriks-4x5" title="Link to this heading">#</a></h3>
+<p>Memasukkan seluruh data persamaan ke dalam matriks augmented berukuran <span class="math notranslate nohighlight">\(4 \times 5\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-2-eliminasi-kolom-pertama">
+<h3>Langkah 2: Eliminasi Kolom Pertama<a class="headerlink" href="#langkah-2-eliminasi-kolom-pertama" title="Link to this heading">#</a></h3>
+<p>Karena pivot pada baris pertama sudah bernilai 1, kita langsung menolkan elemen di bawahnya.
+Operasi: Kurangi baris-baris di bawahnya dengan kelipatan baris ke-0.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">M2</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">M2</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-3-eliminasi-kolom-kedua">
+<h3>Langkah 3: Eliminasi Kolom Kedua<a class="headerlink" href="#langkah-3-eliminasi-kolom-kedua" title="Link to this heading">#</a></h3>
+<p>Lanjutkan proses nolkan elemen di bawah pivot baris ke-1.
+Operasi: <span class="math notranslate nohighlight">\(R_2 \leftarrow 1R_1 + R_2\)</span> dan <span class="math notranslate nohighlight">\(R_3 \leftarrow 3R_1 + R_3\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">M2</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-4-pivot-baris-ketiga-dan-eliminasi">
+<h3>Langkah 4: Pivot Baris Ketiga dan Eliminasi<a class="headerlink" href="#langkah-4-pivot-baris-ketiga-dan-eliminasi" title="Link to this heading">#</a></h3>
+<p>Membuat pivot pada baris ke-2 menjadi 1, lalu menolkan baris di bawahnya.
+Operasi: <span class="math notranslate nohighlight">\(R_2 \leftarrow -1/2 R_2\)</span> kemudian <span class="math notranslate nohighlight">\(R_3 \leftarrow 8R_2 + R_3\)</span></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">M2</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="langkah-5-finalisasi-bentuk-eselon">
+<h3>Langkah 5: Finalisasi Bentuk Eselon<a class="headerlink" href="#langkah-5-finalisasi-bentuk-eselon" title="Link to this heading">#</a></h3>
+<p>Langkah terakhir adalah membuat pivot baris ke-3 menjadi 1.
+Operasi: <span class="math notranslate nohighlight">\(R_3 \leftarrow -1/6 R_3\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matriks Hasil Akhir (Eselon Baris):&quot;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">M2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -419,6 +591,44 @@ cd</p>
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">materi 2(kedua)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gaussian-dengan-sagemath">Eliminasi Gaussian dengan SageMath</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-spl-tiga-variabel">1. Penyelesaian SPL Tiga Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-inisialisasi-matriks-augmented">Langkah 1: Inisialisasi Matriks Augmented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menentukan-pivot-pertama">Langkah 2: Menentukan Pivot Pertama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-eliminasi-kolom-pertama">Langkah 3: Eliminasi Kolom Pertama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menentukan-pivot-kedua">Langkah 4: Menentukan Pivot Kedua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-eliminasi-kolom-kedua">Langkah 5: Eliminasi Kolom Kedua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-menentukan-pivot-ketiga">Langkah 6: Menentukan Pivot Ketiga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-spl-empat-variabel">2. Penyelesaian SPL Empat Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-representasi-matriks-4x5">Langkah 1: Representasi Matriks 4x5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-eliminasi-kolom-pertama">Langkah 2: Eliminasi Kolom Pertama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-eliminasi-kolom-kedua">Langkah 3: Eliminasi Kolom Kedua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-pivot-baris-ketiga-dan-eliminasi">Langkah 4: Pivot Baris Ketiga dan Eliminasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-finalisasi-bentuk-eselon">Langkah 5: Finalisasi Bentuk Eselon</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

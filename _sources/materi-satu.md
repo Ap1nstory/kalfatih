@@ -1,5 +1,4 @@
 # materi 1(pertama)
-ak u adalah anak ra j fuwahhdbdan bukan untuk 
 # Matriks Transformasi Linear
 
 Dalam Aljabar Linear, sebuah transformasi $T: \mathbb{R}^n \to \mathbb{R}^m$ disebut **transformasi linear** jika pemetaan tersebut dapat direpresentasikan dalam bentuk perkalian matriks. Untuk setiap vektor $\mathbf{x}$, transformasinya dapat dituliskan sebagai:
